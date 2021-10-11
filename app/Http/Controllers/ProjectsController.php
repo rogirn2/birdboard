@@ -19,6 +19,11 @@ class ProjectsController extends Controller
 
         //validate
 
+        request()->validate([
+            'title' => 'required',
+            'description' => 'required'
+        ]);
+
         //persist
 
         Project::create(request(['title', 'description']));
